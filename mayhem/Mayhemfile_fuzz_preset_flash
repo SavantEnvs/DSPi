@@ -1,0 +1,11 @@
+project: savantenvs/DSPi
+target: fuzz-preset-flash
+image: $MAYHEM_DOCKER_IMAGE
+
+cmds:
+  - cmd: /mayhem/fuzz_preset_flash
+    libfuzzer: true
+    timeout: 5
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz-preset-flash/testsuite

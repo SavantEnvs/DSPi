@@ -1,0 +1,11 @@
+project: savantenvs/DSPi
+target: fuzz-ir-rx
+image: $MAYHEM_DOCKER_IMAGE
+
+cmds:
+  - cmd: /mayhem/fuzz_ir_rx
+    libfuzzer: true
+    timeout: 5
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz-ir-rx/testsuite

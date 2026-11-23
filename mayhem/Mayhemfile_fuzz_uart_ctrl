@@ -1,0 +1,11 @@
+project: savantenvs/DSPi
+target: fuzz-uart-ctrl
+image: $MAYHEM_DOCKER_IMAGE
+
+cmds:
+  - cmd: /mayhem/fuzz_uart_ctrl
+    libfuzzer: true
+    timeout: 5
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz-uart-ctrl/testsuite

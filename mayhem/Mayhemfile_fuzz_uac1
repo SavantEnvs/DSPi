@@ -1,0 +1,11 @@
+project: savantenvs/DSPi
+target: fuzz-uac1
+image: $MAYHEM_DOCKER_IMAGE
+
+cmds:
+  - cmd: /mayhem/fuzz_uac1
+    libfuzzer: true
+    timeout: 5
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz-uac1/testsuite
